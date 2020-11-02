@@ -1,6 +1,5 @@
 package com.projecttrainschool;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Passanger {
@@ -10,16 +9,18 @@ public class Passanger {
 	private String lastName;
 	private String fullName; 
 	
-	ArrayList <Passanger> passangerList = new ArrayList<Passanger>();
-	
-	public Passanger(String fullName, int age) {
-		this.fullName = fullName; 
+
+	public Passanger(String firstName, String lastName, int age) {
+		this.firstName = firstName; 
+		this.lastName = lastName; 
 		this.age = age; 
 	}
 	
 	public int getAge() {
 		return age;
 	}
+
+
 	public void setAge(int age) {
 		this.age = age;
 	}
@@ -39,23 +40,23 @@ public class Passanger {
 		return fullName;
 	}
 	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	this.fullName = fullName; 
 	} 
 
-	public void AskPassanger() {
+	public static Passanger createPassenger() {
+		Passanger passanger = new Passanger("", "", 0);
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Hej och välkommen ombord.\nVad är ditt förnamn?");
-		setFirstName(scanner.nextLine());
+		passanger.setFirstName(scanner.nextLine());
 		System.out.println("Tack, och ditt efternamn?");
-		setLastName(scanner.nextLine());
-		System.out.println("Välkommen " + getFullName() + ".\nFör att veta kostnaden för biljetten måste jag veta din ålder, hur gammal är du?");
-		setAge(scanner.nextInt());
-		passangerList.add(new Passanger(getFullName(), getAge()));
-		System.out.println(getAge());
-		scanner.close();
-	}
-	public void testPassanger() {
-		System.out.println(getFirstName());
-	}
-	
+		passanger.setLastName(scanner.nextLine());
+		passanger.setFullName(passanger.getFirstName() + " " + passanger.getLastName()); 
+		System.out.println("Välkommen " + passanger.getFullName() + ".\nFör att veta kostnaden för biljetten måste jag veta din ålder, hur gammal är du?");
+		passanger.setAge(scanner.nextInt());
+		
+		return passanger; 
+	}		
+
 }
+
+
