@@ -3,7 +3,7 @@ package com.projecttrainschool;
 import java.util.Scanner; 
 
 public class Menu {
-	Passanger passanger = new Passanger("");
+	Passanger passanger = new Passanger("", 0);
 	Travelers travelers = new Travelers();
 	int menu;
 	int answer;
@@ -14,7 +14,7 @@ public class Menu {
 		answer = scanner.nextInt();
 		switch (answer) {
 		case 1: 
-			travelers.AskTraveler();
+			passanger.AskPassanger();
 			break; 
 		}
 	}	
